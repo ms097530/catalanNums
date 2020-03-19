@@ -16,6 +16,11 @@ int getCatalanNum(int n)
 
 	if (n < 0)
 		return -1;
+	if (n == 0)
+	{
+		//cout << 1 << endl;
+		return 1;
+	}
 
 
 	vector<int> catalan(n + 1, 0);
@@ -26,7 +31,7 @@ int getCatalanNum(int n)
 
 	for (int i = 2; i <= n; ++i)
 	{
-		cout << "catalan[" << i - 1 << "] = " << catalan[i - 1] << endl;
+		//cout << "catalan[" << i - 1 << "] = " << catalan[i - 1] << endl;
 		for (int j = i; j > int(ceil(i / 2.0)); --j)
 		{
 			//cout << "Before: catalan[" << i << "-1] = " << catalan[i-1] << "   j = " << j << endl;
@@ -37,16 +42,15 @@ int getCatalanNum(int n)
 			catalan[i] += catalan[int(floor(i / 2.0))] * catalan[int(floor(i / 2.0))];
 	}
 
-	cout << catalan[n] << endl;
+	//cout << catalan[n] << endl;
 
 	return catalan[n];
 }
 
 int main()
 {
-	//for (int i = 0; i <= 6; ++i)
-		//getCatalanNum(i);
-	cout << getCatalanNum(6) << endl;
-	cout << getCatalanNum(5) << endl;
+	for (int i = 0; i <= 6; ++i)
+		getCatalanNum(i);
+	
 	return 0;
 }
